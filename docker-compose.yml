@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  db:
+    image: ankane/pgvector:v0.5.1
+    environment:
+      - POSTGRES_USER=nwis_user
+      - POSTGRES_PASSWORD=nwis_pass
+      - POSTGRES_DB=nwis_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
