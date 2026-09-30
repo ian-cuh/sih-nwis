@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, CheckCircle2, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Play, CheckCircle2, ChevronDown, X } from 'lucide-react';
 
 const DEMO_STEPS = [
   "Active well W-104 is selected (Dashboard).",

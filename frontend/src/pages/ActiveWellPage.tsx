@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Target, Activity, Map, ArrowRight } from 'lucide-react';
+import { Target, Activity } from 'lucide-react';
 
 export function ActiveWellPage() {
   const [similarityData, setSimilarityData] = useState<any>(null);

@@ -36,7 +36,7 @@ interface CorrelationData { active_well: WellCorrelation; offset_wells: WellCorr
 // ---- Constants ----
 const COL_W = 140;          // px per well column
 const DEPTH_SCALE = 0.12;   // px per metre
-const MIN_DEPTH = 0;
+
 
 function depthToPx(depth: number) { return depth * DEPTH_SCALE; }
 
@@ -56,7 +56,7 @@ function FormationStripe({ f, totalDepth }: { f: FormationRow; totalDepth: numbe
 }
 
 // ---- Event marker ----
-function EventMarker({ ev, tooltip, onHover }: { ev: EventRow; tooltip: boolean; onHover: (e: EventRow | null) => void }) {
+function EventMarker({ ev, onHover }: { ev: EventRow; onHover: (e: EventRow | null) => void }) {
   const top = depthToPx(ev.depth_from);
   const height = Math.max(depthToPx(ev.depth_to - ev.depth_from), 4);
   const color = EVENT_COLORS[ev.event_type] || '#f59e0b';
@@ -132,7 +132,7 @@ function WellColumn({
         {/* Formation stripes */}
         {well.formations.map(f => <FormationStripe key={f.name} f={f} totalDepth={maxDepth} />)}
         {/* Event markers */}
-        {well.events.map(ev => <EventMarker key={ev.id} ev={ev} tooltip={false} onHover={onEventHover} />)}
+        {well.events.map(ev => <EventMarker key={ev.id} ev={ev} onHover={onEventHover} />)}
         {/* Current depth line */}
         {well.is_active && <CurrentDepthLine depth={well.current_depth} maxDepth={maxDepth} />}
       </div>
@@ -161,7 +161,7 @@ export function DepthCorrelationPage() {
 
   const allWells = [data.active_well, ...data.offset_wells];
   const maxDepth = Math.max(...allWells.map(w => w.total_depth));
-  const totalHeightPx = depthToPx(maxDepth);
+
 
   return (
     <div className="flex flex-col h-full gap-4">

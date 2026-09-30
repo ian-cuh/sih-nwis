@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Target, AlertTriangle, Shield, Search, X, Activity, Map as MapIcon, BarChart2 } from 'lucide-react';
+import { Target, AlertTriangle, Shield, Search, X } from 'lucide-react';
 import { OffsetWellMap } from '../features/map/OffsetWellMap';
 import { HistoricalSearchPage } from './HistoricalSearchPage';
 import { DepthCorrelationPage } from './DepthCorrelationPage';
